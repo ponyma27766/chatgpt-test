@@ -1,2 +1,4 @@
+runs/
+reports/
 __pycache__/
 *.pyc
