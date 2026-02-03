@@ -89,3 +89,49 @@ Smoke test passed.
 - `DATA_FILE`：数据更新时间文件路径（默认 `data/last_update.txt`）
 - `LOG_DIR`：日志目录（默认 `logs/`）
 - `COMPOSE_DIR`：compose 目录（默认仓库根目录）
+
+---
+
+# Data pipeline (daily market data)
+
+> 这部分是“抓取数据 + 校验数据”的最小用法示例。
+
+## From zero to success
+
+### 1) Fetch data
+
+```bash
+python3 -m pipeline.fetch \
+  --symbol aapl.us \
+  --start 2024-01-01 \
+  --end 2024-01-31 \
+  --output-dir data \
+  --format csv
+```
+
+Expected output (path printed):
+
+```text
+data/aapl.us_2024-01-01_2024-01-31.csv
+```
+
+### 2) Validate data
+
+```bash
+python3 -m pipeline.validate \
+  --input data/aapl.us_2024-01-01_2024-01-31.csv \
+  --report-dir reports
+```
+
+Expected output (path printed):
+
+```text
+reports/validate_<timestamp>.md
+```
+
+### 3) Make targets (if Makefile exists)
+
+```bash
+make data
+make validate
+```
