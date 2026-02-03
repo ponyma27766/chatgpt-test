@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  app:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - APP_ENV=${APP_ENV:-local}
+    command: ["bash", "-lc", "scripts/smoke_test.sh"]
