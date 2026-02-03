@@ -1,0 +1,12 @@
+{
+  "data": {
+    "seed": 7,
+    "size": 256,
+    "noise": 0.1,
+    "version": "toy-v1"
+  },
+  "train": {
+    "steps": 200,
+    "lr": 0.1
+  }
+}
