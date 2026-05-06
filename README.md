@@ -225,3 +225,18 @@ make data
 make validate
 ```
 
+
+
+## 坦克大战小游戏
+
+运行：
+
+```bash
+python tank_battle.py
+```
+
+操作：
+- `WASD` 或方向键：移动/转向
+- `Space` 或 `J`：开火
+- `R`：失败后重开
+- `Esc`：退出
